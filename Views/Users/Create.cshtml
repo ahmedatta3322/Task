@@ -1,0 +1,74 @@
+﻿@model task.Models.User
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create new user personal data</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <select asp-for="City">
+                    <option>Giza</option>
+                    <option>Cairo</option>
+                    <option>Alex</option>
+                </select>
+
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpeakingLanguage" class="control-label"></label>
+                <br />
+                <select asp-for="SpeakingLanguage" multiple>
+                    <option>English</option>
+                    <option>French</option>
+                    <option>German</option>
+                </select>
+
+                <span asp-validation-for="SpeakingLanguage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GradeYear" class="control-label"></label>
+                <input asp-for="GradeYear" class="form-control" />
+                <span asp-validation-for="GradeYear" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Comment" class="control-label"></label>
+                <input asp-for="Comment" class="form-control" />
+                <span asp-validation-for="Comment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label style="color:red">By default your access level is user , if you want to register as admin click on register</label>
+               
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
